@@ -2,6 +2,7 @@
 import "./styles.css"
 import {useState} from "react"
 import { NewTodoForm } from "./NewTodoForm"
+import { TodoList } from "./TodoList"
 
 export default function App(){
 {/*usestate hooks up react on top of page,
