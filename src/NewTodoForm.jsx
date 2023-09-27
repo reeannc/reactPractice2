@@ -27,5 +27,3 @@ export function NewTodoForm({ onSubmit }) {
     </form>
   )
 }
-
-{/* find error here */}
