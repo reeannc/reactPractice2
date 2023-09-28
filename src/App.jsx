@@ -2,9 +2,9 @@
 
 
 import { useEffect, useState } from "react"
+import { TodoList } from "./TodoList"
 import { NewTodoForm } from "./NewTodoForm"
 import "./styles.css"
-import { TodoList } from "./TodoList"
 
 export default function App() {
   const [todos, setTodos] = useState(() => {
@@ -47,9 +47,13 @@ export default function App() {
 
   return (
     <>
-      <NewTodoForm onSubmit={addTodo} />
       <h1 className="header">Todo List</h1>
+      <NewTodoForm onSubmit={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </>
   )
 }
+
+
+{/* create another project like the one on browser 
+do it step by step*/}

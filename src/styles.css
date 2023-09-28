@@ -4,11 +4,16 @@
   }
   
   body {
-    background: #333;
+    background: #594662;
     color: hsl(200, 100%, 90%);
     max-width: 400px;
     padding: 1rem;
     margin: 0 auto;
+  }
+
+  .header{
+    display: flex;
+    justify-content: center;
   }
   
   .new-item-form {
@@ -48,6 +53,16 @@
   .btn.btn-danger:focus-visible {
     background: hsl(0, 100%, 40%, 0.2);
   }
+
+  .btn.btn-light{
+    background: hsla(115, 48%, 79%, 0.1);
+    border: 1px solid hsl(78, 79%, 73%);
+    color: hsl(94, 82%, 65%);
+  }
+
+  .btn.btn-light:hover{
+    background: hsl(0, 100%, 40%, 0.2);
+  }
   
   .new-item-form input {
     outline: none;
@@ -69,7 +84,7 @@
   }
   
   .list {
-    margin: 0;
+    margin: 20;
     padding: 0;
     margin-left: 1rem;
     list-style: none;
@@ -82,12 +97,12 @@
   .list {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 1rem;
   }
   
   .list li {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
     align-items: center;
   }
   
