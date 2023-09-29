@@ -1,12 +1,11 @@
-{/* react has this pattern: hook, helper functions, return jsx */}
-
 
 import { useEffect, useState } from "react"
-import { TodoList } from "./TodoList"
 import { NewTodoForm } from "./NewTodoForm"
 import "./styles.css"
+import { TodoList } from "./TodoList"
 
 export default function App() {
+  const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState(() => {
     const localValue = localStorage.getItem("ITEMS")
     if (localValue == null) return []
@@ -17,6 +16,9 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("ITEMS", JSON.stringify(todos))
   }, [todos])
+
+  const [todoEditing, setTodoEditing] = useState(null);
+  const [editingText, setEditingText] = useState("");
 
   function addTodo(title) {
     setTodos(currentTodos => {
@@ -45,15 +47,22 @@ export default function App() {
     })
   }
 
+  function submitEdits(id){
+    const updatedTodos = currentTodos.map((todo) => {
+      if(todo.id === id){
+        todo.text = editingText;
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+    setToEditing(null);
+  }
+
   return (
     <>
-      <h1 className="header">Todo List</h1>
       <NewTodoForm onSubmit={addTodo} />
+      <h1 className="header">Todo List</h1>
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </>
   )
 }
-
-
-{/* create another project like the one on browser 
-do it step by step*/}
